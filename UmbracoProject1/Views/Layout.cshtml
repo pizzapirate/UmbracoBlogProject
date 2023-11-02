@@ -1,0 +1,29 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@{
+	Layout = null;
+}
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@Model.Value("title") | THE GREATEST GAMING BLOG</title>
+  </head>
+  <body>
+      
+    <div style="background-color: orange; padding: 10px 0 10px 0">
+        NAVBAR
+    </div>
+
+    <div>
+        @RenderBody()
+    </div>
+    
+    <div style="background-color: orange; padding: 10px 0 10px 0">
+        FOOTER
+    </div>
+    
+  </body>
+</html>

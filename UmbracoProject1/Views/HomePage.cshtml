@@ -1,0 +1,61 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.HomePage>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+	Layout = "Layout.cshtml";
+}
+
+<h1>@Model.HeaderText</h1>
+<p>@Model.HeaderSubText</p>
+
+<div>
+@{
+	var selection = Umbraco.Content(Guid.Parse("630a80d6-7099-4e9e-8ae9-ac3fb95ad61a"))
+    .ChildrenOfType("blogPost")
+    .Where(x => x.IsVisible());
+}
+@* <ul>
+	@foreach (var item in selection)
+	{
+		<li>
+			<a href="@item.Url()">@item.Name()</a>
+		</li>
+	}
+</ul> *@
+	
+	@foreach (var item in selection)
+	{
+		<div id="articleCard">
+			<h3>
+				<a href="@item.Url()">@item.Value("title")</a>
+			</h3>
+
+			@{
+				var headerImage = ((Umbraco.Cms.Web.Common.PublishedModels.BlogPost)item).HeaderImage?.MediaUrl();
+			}
+
+			@if (!string.IsNullOrEmpty(headerImage))
+			{
+				<img src="@headerImage" alt="Header Image" />
+			}
+			<p>
+				@item.Value("subtitle") 
+			</p>
+		</div>
+	}
+
+
+</div>
+
+<style>
+	#articleCard {
+		width: 300px;
+		background-color: dimgray;
+		overflow: hidden;
+	}
+	#articleCard img {
+		display: block;
+		width: 100%;
+		object-fit: cover;
+	}
+</style>
