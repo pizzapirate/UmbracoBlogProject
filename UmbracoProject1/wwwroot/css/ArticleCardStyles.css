@@ -1,0 +1,41 @@
+.articleCardContainer {
+
+}
+
+.articleCard {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* 720 / 1280 * 100% */
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    overflow: hidden;
+}
+
+
+.articleCard h2,
+.articleCard .articleCardSubTitle,
+.articleCard p {
+    position: absolute;
+    width: 100%;
+}
+
+.articleCard h2 {
+    top: 30%;
+}
+
+.articleCard .articleCardSubTitle {
+    top: 50%;
+}
+
+.articleCard p {
+    top: 70%;
+}
+
+.articleCardAnchor {
+    text-decoration: none;
+}
+.articleCardSubTitle {
+    font-style: italic;
+}
